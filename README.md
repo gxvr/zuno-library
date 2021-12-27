@@ -1,6 +1,6 @@
 # Zuno Library - Interview Challenge
 
-This is a project for Zuno. It is a books library webapp that allows users to view, search and explore books as well as to see the users views on chart.
+This is a project for Zuno. It is a books library webapp that allows users to view, search and explore books as well as to see the book views on a chart.
 
 
 ## Getting started
@@ -27,13 +27,13 @@ npm install -g @vue/cli
 
 ## Installing requirements
 
-On the backend you need to install all requirements for zuno library to be able to run. Got to to api directory then run following command:
+On the backend you need to install all python requirements for zuno library to be able to run. install by following command:
 
 ```bash
-pip install -r requirements.txt
+pipenv install  (Change python version in Pipfile to match what you have installed in your computer before running this command) 
 ```
 
-On the frontend you need all requirements for zuno library to be able to run. Got to frontend directory then run following command:
+On the frontend you need all dependecies to be installed also. Got to **web** directory then run following command:
 
 ```bash
 npm install
@@ -41,12 +41,16 @@ npm install
 
 ## Youre ready to go
 
-Now you're setup should be ready for launching the app. Go to the root directory of the project and run following command:
+Now you're setup should be ready for launch, if you're running this on local environment use:
 
 ```bash
-python app.py
+pipenv run dev
 ```
 
+while if you're running this on production environment use
+```bash
+pipenv run prod
+```
 
 ## Technologies
 #### Frontend
@@ -61,3 +65,5 @@ python app.py
 - FastAPI
 - MYSQL
 - SQLAlchemy
+- Uvicorn
+- Loguru
