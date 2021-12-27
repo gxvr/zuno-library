@@ -19,6 +19,11 @@ pip install pipenv
 
 Also you need to install Node.js and NPM if you don't have it yet. Go to NodeJs [website](https://nodejs.org/en/) and download the latest version.
 
+Lastly, you need to install Vuejs CLI globally by
+
+```bash
+npm install -g @vue/cli
+```
 
 ## Installing requirements
 
@@ -26,6 +31,12 @@ On the backend you need to install all requirements for zuno library to be able 
 
 ```bash
 pip install -r requirements.txt
+```
+
+On the frontend you need all requirements for zuno library to be able to run. Got to frontend directory then run following command:
+
+```bash
+npm install
 ```
 
 ## Youre ready to go
@@ -38,15 +49,14 @@ python app.py
 
 
 ## Technologies
-
-### Frontend
+#### Frontend
 - VueJs
 - TailwindCSS
 - AlpineJS
 - ApexCharts
 - HTML5/CSS3
 
-### Backend
+#### Backend
 - Python
 - FastAPI
 - MYSQL
