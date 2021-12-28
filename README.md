@@ -39,18 +39,34 @@ On the frontend you need all dependecies to be installed also. Got to **web** di
 npm install
 ```
 
+If you encountered error on installing postcss you can try the below commands
+
+```bash
+npm uninstall tailwindcss postcss autoprefixer
+
+npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-compat postcss@^7 autoprefixer@^9
+```
+
 ## Youre ready to go
 
-Now you're setup should be ready for launch, if you're running this on local environment use:
+Now you're setup should be ready for launch. Launch your backend with:
 
 ```bash
 pipenv run dev
 ```
 
-while if you're running this on production environment use
+or if you're running this on production environment use
 ```bash
 pipenv run prod
 ```
+
+For frontend cd to web directory then run following command:
+```bash
+npm run serve
+```
+
+To use your app, open your browser and go to http://localhost:5000/
+
 
 ## Technologies
 #### Frontend
