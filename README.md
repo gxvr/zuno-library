@@ -33,7 +33,7 @@ On the backend you need to install all needed dependecies. Go to **fastapi** dir
 pip install -r requirements.txt
 ```
 
-Likewise on the frontend go to **frontend** directory then run following command:
+Likewise on the frontend go to **web** directory then run following command:
 
 ```bash
 npm install
@@ -57,7 +57,7 @@ First, Start your backend server on *fastapi* directory by running:
 ```bash
 uvicorn index:app --reload --port 5051
 ```
-Then on frontend go to *frontend* directory and run following command:
+Then on frontend go to *web* directory and run following command:
 ```bash
 npm run serve
 ```
