@@ -39,8 +39,8 @@
       >
         <!-- books start -->
         <div>
-          <a
-            href="#"
+          <router-link
+            :to="{ name: 'Book' }"
             class="
               group
               h-72
@@ -58,10 +58,10 @@
               alt="Book Cover"
               class="w-full h-full object-cover object-center"
             />
-          </a>
+          </router-link>
 
           <div class="flex flex-col">
-            <a
+            <div
               href="#"
               class="
                 text-gray-800
@@ -70,8 +70,9 @@
                 lg:text-lg
                 font-bold
               "
-              >Tales of two Cities</a
             >
+              Tales of two Cities
+            </div>
             <span class="text-gray-500">Simon Spotlight</span>
           </div>
         </div>

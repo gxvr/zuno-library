@@ -39,7 +39,7 @@ On the frontend you need all dependecies to be installed also. Got to **web** di
 npm install
 ```
 
-If you encountered error on installing postcss you can try the below commands
+If you encountered error on postcss while running the app you can try the following commands
 
 ```bash
 npm uninstall tailwindcss postcss autoprefixer
@@ -72,7 +72,6 @@ To use your app, open your browser and go to http://localhost:5000/
 #### Frontend
 - VueJs & Vue Router
 - TailwindCSS
-- AlpineJS
 - ApexCharts
 - HTML5/CSS3
 

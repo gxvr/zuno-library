@@ -1,6 +1,6 @@
+// Home
 <template>
   <div id="app">
-    Hello
     <Navbar />
     <Hero />
     <Books />
@@ -8,9 +8,9 @@
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
-import Hero from "./components/Hero.vue";
-import Books from "./components/Books.vue";
+import Navbar from "../components/Navbar.vue";
+import Hero from "../components/Hero.vue";
+import Books from "../components/Books.vue";
 
 export default {
   name: "App",
