@@ -70,7 +70,7 @@ To use your app, open your browser and go to http://localhost:5000/
 
 ## Technologies
 #### Frontend
-- VueJs
+- VueJs & Vue Router
 - TailwindCSS
 - AlpineJS
 - ApexCharts
