@@ -5,8 +5,8 @@ class LibraryDataService {
         return http.get("/books");
     }
 
-    get(bibnum) {
-        return http.get(`/books/${bibnum}`);
+    get(bibnum, data) {
+        return http.get(`/books/${bibnum}`, data);
     }
 }
 

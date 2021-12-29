@@ -4,10 +4,6 @@
     <Navbar />
     <Hero />
     <Books />
-    <div v-for="post in posts" v-bind:key="post.id">
-      <h2>{{ post.title }}</h2>
-      <p>{{ post.body }}</p>
-    </div>
     <Footer />
   </div>
 </template>
@@ -45,7 +41,7 @@ h3 {
   font-family: "Prompt", sans-serif;
 }
 
-header a {
+nav a {
   font-size: 16px !important;
 }
 
