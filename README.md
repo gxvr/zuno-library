@@ -55,9 +55,10 @@ Now your system should be ready for launch and serve our wonderful app.
 First, Start your backend server on *fastapi* directory by running:
 
 ```bash
-uvicorn index:app --reload --port 5051
+uvicorn main:app --reload --port 5051
 ```
 Then on frontend go to *web* directory and run following command:
+
 ```bash
 npm run serve
 ```
