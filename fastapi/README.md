@@ -8,7 +8,7 @@ pip install -r requirements.txt
 ```
 
 
-- Finally run the project
+- Finally run the project on port 5051
 ```
 uvicorn main:app --reload --port 5051
 ```

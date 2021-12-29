@@ -2,25 +2,19 @@
 <template>
   <div id="app">
     <Navbar />
-    <div class="bg-white py-6 sm:py-8 lg:py-12">
+    <div class="py-6 bg-white sm:py-8 lg:py-12 main-wrapper px-28">
       <div class="max-w-screen-xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-8">
+        <div class="grid gap-8 md:grid-cols-2">
           <!-- images - start -->
-          <div class="grid lg:grid-cols-5 gap-4">
+          <div class="grid gap-4 lg:grid-cols-5">
             <div
-              class="
-                lg:col-span-4
-                bg-gray-100
-                rounded-lg
-                overflow-hidden
-                relative
-              "
+              class="relative overflow-hidden bg-gray-100 rounded-lg  lg:col-span-4"
             >
               <img
                 src="../assets/img/book-cover.jpg"
                 loading="lazy"
                 alt=""
-                class="w-full h-full object-cover object-center"
+                class="object-cover object-center w-full h-full"
               />
 
               <span
@@ -92,8 +86,10 @@
                 Author: <b class="font-bold">{{ book.author }}</b>
               </span>
 
-              <h2 class="text-gray-800 text-2xl lg:text-3xl font-bold mb-5">
-                <h1>{{ book.title }}</h1>
+              <h2
+                class="mb-5 text-2xl font-bold text-gray-800  lg:text-3xl line-clamp-3"
+              >
+                {{ book.title }}
               </h2>
 
               <!-- stars -->
@@ -167,70 +163,53 @@
                 ISBN: <b class="font-bold">{{ book.isbn }}</b>
               </p>
 
-              <p class="mb-5">Subjects: {{ book.subjects }}</p>
+              <p class="mb-5 font-normal">Subjects: {{ book.subjects }}</p>
             </div>
-            <!-- name - end -->
 
-            <!-- rating - start -->
-            <div class="flex items-center gap-3 mb-6 md:mb-10">
-              <span class="text-gray-500 text-sm transition duration-100"
-                >{{ book.itemtype }} Item Type</span
-              >
+            <div class="flex items-center gap-3 mb-6">
+              <span
+                class="font-normal text-gray-500 transition duration-100  text-md"
+                >Item Type: <b class="font-bold"> {{ book.itemtype }}</b>
+              </span>
               |
-              <span class="text-gray-500 text-sm transition duration-100"
-                >{{ book.itemcount }} Item Count</span
+              <span
+                class="font-normal text-gray-500 transition duration-100  text-md"
+                >View Count:
+                <b class="font-bold"> {{ book.itemcount }}</b></span
               >
             </div>
-            <!-- rating - end -->
+
+            <hr class="mt-5 mb-5" />
+
+            <div class="mb-5">
+              <span class="text-gray-500 transition duration-100">{{
+                type.description
+              }}</span>
+            </div>
+
+            <div class="flex items-center gap-3 mb-6">
+              <span
+                class="font-normal text-gray-500 transition duration-100  text-md"
+                >Format: <b class="font-bold"> {{ type.formatgroup }}</b>
+              </span>
+              |
+              <span
+                class="font-normal text-gray-500 transition duration-100  text-md"
+                >Subgroup: <b class="font-bold"> {{ type.formatsubgroup }}</b>
+              </span>
+            </div>
 
             <!-- buttons - start -->
             <div class="flex gap-2.5">
               <a
                 href="#"
-                class="
-                  inline-block
-                  flex-1
-                  sm:flex-none
-                  bg-indigo-500
-                  hover:bg-indigo-600
-                  active:bg-indigo-700
-                  focus-visible:ring
-                  ring-indigo-300
-                  text-white text-sm
-                  md:text-base
-                  font-semibold
-                  text-center
-                  rounded-lg
-                  outline-none
-                  transition
-                  duration-100
-                  px-8
-                  py-3
-                "
+                class="flex-1 inline-block px-8 py-3 text-sm font-semibold text-center text-white transition duration-100 bg-indigo-500 rounded-lg outline-none  sm:flex-none hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 md:text-base"
                 >Add to cart</a
               >
 
               <a
                 href="#"
-                class="
-                  inline-block
-                  bg-gray-200
-                  hover:bg-gray-300
-                  focus-visible:ring
-                  ring-indigo-300
-                  text-gray-500
-                  active:text-gray-700
-                  text-sm
-                  md:text-base
-                  font-semibold
-                  text-center
-                  rounded-lg
-                  outline-none
-                  transition
-                  duration-100
-                  px-8
-                  py-3
-                "
+                class="inline-block px-8 py-3 text-sm font-semibold text-center text-gray-500 transition duration-100 bg-gray-200 rounded-lg outline-none  hover:bg-gray-300 focus-visible:ring ring-indigo-300 active:text-gray-700 md:text-base"
                 >Buy now</a
               >
             </div>
@@ -241,7 +220,10 @@
 
         <div class="mt-10">
           <!-- Chart -->
-          <Chart v-bind:chartData="state.chartData" />
+          <Chart
+            v-bind:chartData="state.chartData"
+            v-bind:chartOptions="state.chartOptions"
+          />
         </div>
       </div>
     </div>
@@ -267,26 +249,24 @@ export default {
   data() {
     return {
       book: "",
-      // state: {
-      //   chartData: {
-      //     datasets: [
-      //       {
-      //         data: [5],
-      //         backgroundColor: ["Blue"],
-      //       },
-      //     ],
-      //     labels: ["Item Count"],
-      //   },
-      //   chartOptions: {
-      //     responsive: false,
-      //     title: {
-      //       display: true,
-      //       text: "Item Count",
-      //     },
-      //   },
-      // },
+      type: "",
       state: {
-        chartData: "",
+        chartData: {
+          datasets: [
+            {
+              data: [5],
+              backgroundColor: ["Blue"],
+            },
+          ],
+          labels: ["Item Count"],
+        },
+        chartOptions: {
+          responsive: false,
+          title: {
+            display: true,
+            text: "Item Count",
+          },
+        },
       },
     };
   },
@@ -295,19 +275,8 @@ export default {
     getBook(bibnum) {
       LibraryDataService.get(bibnum)
         .then((response) => {
-          this.book = response.data[0];
-          console.log(response.data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    },
-
-    getBookChart(bibnum) {
-      LibraryDataService.get(bibnum)
-        .then((response) => {
-          this.state.chartData = response.data[0].itemcount;
-          console.log(response.data[0].itemcount);
+          this.book = response.data[0].media;
+          this.type = response.data[0].media_type;
         })
         .catch((e) => {
           console.log(e);
@@ -317,7 +286,6 @@ export default {
 
   mounted() {
     this.getBook(this.$route.params.bibnum);
-    this.getBookChart(this.$route.params.bibnum);
   },
 };
 </script>
