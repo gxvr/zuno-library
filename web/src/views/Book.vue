@@ -238,14 +238,21 @@
           </div>
           <!-- content - end -->
         </div>
+
+        <div class="mt-10">
+          <!-- Chart -->
+          <Chart v-bind:chartData="state.chartData" />
+        </div>
       </div>
     </div>
+
     <Footer />
   </div>
 </template>
 
 <script>
 import Navbar from "../components/Navbar.vue";
+import Chart from "../components/Chart.vue";
 import Footer from "../components/Footer.vue";
 import LibraryDataService from "../services/LibraryDataService";
 
@@ -253,11 +260,34 @@ export default {
   name: "Book",
   components: {
     Navbar,
+    Chart,
     Footer,
   },
+
   data() {
     return {
       book: "",
+      // state: {
+      //   chartData: {
+      //     datasets: [
+      //       {
+      //         data: [5],
+      //         backgroundColor: ["Blue"],
+      //       },
+      //     ],
+      //     labels: ["Item Count"],
+      //   },
+      //   chartOptions: {
+      //     responsive: false,
+      //     title: {
+      //       display: true,
+      //       text: "Item Count",
+      //     },
+      //   },
+      // },
+      state: {
+        chartData: "",
+      },
     };
   },
 
@@ -272,10 +302,22 @@ export default {
           console.log(e);
         });
     },
+
+    getBookChart(bibnum) {
+      LibraryDataService.get(bibnum)
+        .then((response) => {
+          this.state.chartData = response.data[0].itemcount;
+          console.log(response.data[0].itemcount);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
   },
 
   mounted() {
     this.getBook(this.$route.params.bibnum);
+    this.getBookChart(this.$route.params.bibnum);
   },
 };
 </script>
