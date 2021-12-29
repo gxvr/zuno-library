@@ -123,7 +123,7 @@ export default {
       LibraryDataService.getAll()
         .then((response) => {
           this.books = response.data;
-          console.log(response.data);
+          // console.log(response.data);
         })
         .catch((e) => {
           console.log(e);

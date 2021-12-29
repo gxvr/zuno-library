@@ -169,27 +169,6 @@
             <div class="flex items-center gap-3 mb-6">
               <span
                 class="font-normal text-gray-500 transition duration-100  text-md"
-                >Item Type: <b class="font-bold"> {{ book.itemtype }}</b>
-              </span>
-              |
-              <span
-                class="font-normal text-gray-500 transition duration-100  text-md"
-                >View Count:
-                <b class="font-bold"> {{ book.itemcount }}</b></span
-              >
-            </div>
-
-            <hr class="mt-5 mb-5" />
-
-            <div class="mb-5">
-              <span class="text-gray-500 transition duration-100">{{
-                type.description
-              }}</span>
-            </div>
-
-            <div class="flex items-center gap-3 mb-6">
-              <span
-                class="font-normal text-gray-500 transition duration-100  text-md"
                 >Format: <b class="font-bold"> {{ type.formatgroup }}</b>
               </span>
               |
@@ -197,6 +176,33 @@
                 class="font-normal text-gray-500 transition duration-100  text-md"
                 >Subgroup: <b class="font-bold"> {{ type.formatsubgroup }}</b>
               </span>
+            </div>
+
+            <div class="flex items-center gap-3 mb-6">
+              <span class="text-gray-500 transition duration-100">
+                Desc: <b class="font-bold">{{ type.description }}</b>
+              </span>
+              |
+              <span
+                class="font-normal text-gray-500 transition duration-100  text-md"
+                >Barcode: <b class="font-bold"> {{ checkout.itembarcode }}</b>
+              </span>
+            </div>
+
+            <hr class="mt-5 mb-5" />
+
+            <div class="flex items-center gap-3 mb-8">
+              <span
+                class="font-normal text-gray-500 transition duration-100  text-md"
+                >Checkout Date:
+                <b class="font-bold"> {{ checkout.checkoutdatetime }}</b>
+              </span>
+              |
+              <span
+                class="font-normal text-gray-500 transition duration-100  text-md"
+                >View Count:
+                <b class="font-bold"> {{ book.itemcount }}</b></span
+              >
             </div>
 
             <!-- buttons - start -->
@@ -250,6 +256,7 @@ export default {
     return {
       book: "",
       type: "",
+      checkout: "",
       state: {
         chartData: {
           datasets: [
@@ -277,6 +284,8 @@ export default {
         .then((response) => {
           this.book = response.data[0].media;
           this.type = response.data[0].media_type;
+          this.checkout = response.data[0].checkout_data;
+          // console.log(response.data[0]);
         })
         .catch((e) => {
           console.log(e);

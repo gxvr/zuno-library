@@ -68,8 +68,8 @@ async def get_checkout_data():
 @app.get('/books')
 def library():
     with Session(engine) as session:
-        statement = select(media, media_type, checkout_data).where(
-            media.itemtype == media_type.code).where(checkout_data.bibnumber == media.bibnum)
+        statement = select(media, media_type).where(
+            media.itemtype == media_type.code)
         results = session.exec(statement).all()
         for result in results:
             return results
@@ -78,7 +78,7 @@ def library():
 @app.get('/books/{bibnum}')
 def library_book(bibnum: int):
     with Session(engine) as session:
-        statement = select(media, media_type).where(
-            media.itemtype == media_type.code).where(checkout_data.bibnumber == media.bibnum).where(media.bibnum == bibnum)
-        results = session.exec(statement).all()
-        return results
+        statement = select(media, media_type, checkout_data).where(
+            media.itemtype == media_type.code == checkout_data.bibnumber).where(media.bibnum == bibnum)
+        result = session.exec(statement).all()
+        return result
