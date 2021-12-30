@@ -21,7 +21,7 @@
         <div v-for="book in books" v-bind:key="book.bibnum" class="mt-2 mb-3">
           <router-link
             :to="'/books/' + book.media.bibnum"
-            class="block mb-2 overflow-hidden bg-gray-100 rounded-lg shadow-lg  group h-84 lg:mb-3"
+            class="block mb-2 overflow-hidden bg-gray-100 rounded-lg shadow-lg  group h-84 lg:mb-3 hover"
           >
             <img
               src="../assets/img/book-cover.jpg"
@@ -142,6 +142,15 @@ export default {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.hover {
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+.hover:hover {
+  top: -10px;
 }
 </style>
 
