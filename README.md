@@ -40,12 +40,20 @@ npm install tailwindcss@npm:@tailwindcss/postcss7-compat @tailwindcss/postcss7-c
 
 Now your system should be ready for launch and serve our wonderful app. 
 
-First, Start your backend server on *fastapi* directory by running:
+First, go to *fastapi* directory
+
+- Add your Mysql database credentials on database.py
+```
+conn_str = "mysql+pymysql://username:password@host/database"
+```
+
+Then start your backend by running:
 
 ```bash
 uvicorn main:app --reload --port 5051
 ```
-Then on frontend go to *web* directory and run following command:
+
+On frontend go to *web* directory and run following command:
 
 ```bash
 npm run serve
